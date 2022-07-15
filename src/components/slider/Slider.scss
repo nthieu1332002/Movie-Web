@@ -1,0 +1,8 @@
+@use "../../scss/" as *;
+
+.swipper-wrapper {
+    margin: 0 5rem;
+    @include tablet {
+        margin: 0 1rem;
+    }
+}

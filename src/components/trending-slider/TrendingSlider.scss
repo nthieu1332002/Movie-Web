@@ -1,0 +1,26 @@
+@use "../../scss/" as *;
+
+.similar {
+  margin: 1rem 5rem;
+  color: #12c6b2;
+  display: flex;
+  justify-content: space-between;
+  @include mobile {
+    margin: 1rem;
+  }
+  .view-more {
+    cursor: pointer;
+    color: #12c6b2;
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.2rem 0.5rem;
+    border: 2px solid #12c6b2;
+    border-radius: 0.3rem;
+    transition: 0.3s;
+    &:hover {
+      background-color: #12c6b2;
+      color: white;
+    }
+  }
+}

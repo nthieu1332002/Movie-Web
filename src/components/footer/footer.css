@@ -1,0 +1,33 @@
+.footer {
+    position: relative;
+    padding: 3rem 5rem;
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.footer__content {
+    max-width: 100%;
+}
+
+.footer__content__logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+.footer__content__logo img{
+    width: 10rem;
+}
+
+.footer__content__menus {
+    display: grid;
+    grid-template-columns: repeat(3, 5fr);
+    place-items: center;
+}
+
+.footer__content__menu {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    font-weight: 600;
+}

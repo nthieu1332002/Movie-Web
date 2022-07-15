@@ -1,0 +1,44 @@
+@use "../../scss/" as *;
+
+.card-movie {
+  overflow: hidden;
+  .card-movie-image {
+    position: relative;
+    h3 {
+      position: absolute;
+      right: 0;
+      z-index: 1;
+      color: white;
+      background-color: #f50303;
+      padding: 0.2rem;
+    }
+    img {
+      width: 100%;
+      height: 350px;
+      border-radius: 0.8rem;
+      filter: brightness(90%);
+      @include mobile {
+        height: 300px;
+        width: 100%;
+      }
+    }
+  }
+  p {
+    text-align: center;
+    color: white;
+    font-weight: 500;
+  }
+  &:hover img {
+    filter: brightness(100%);
+ }
+}
+
+
+
+
+
+a {
+  text-decoration: none;
+}
+
+
