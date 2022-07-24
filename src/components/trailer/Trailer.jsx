@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import "./Trailer.scss";
 
 const Trailer = (props) => {
   const [trailers, setTrailers] = useState([]);
@@ -18,30 +18,17 @@ const Trailer = (props) => {
     <>
       {trailers.map((item) => {
         return (
-          <Video key={item.key}>
+          <div className="video" key={item.key}>
             <p className="trailer-title">{item.name}</p>
             <iframe
               src={`https://www.youtube.com/embed/${item.key}`}
               title="trailer"
             ></iframe>
-          </Video>
+          </div>
         );
       })}
     </>
   );
 };
-
-const Video = styled.div`
-  margin: 2rem 5rem;
-  .trailer-title {
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: #12c6b2;
-  }
-  iframe {
-    width: 100%;
-    height: 700px;
-  }
-`;
 
 export default Trailer;

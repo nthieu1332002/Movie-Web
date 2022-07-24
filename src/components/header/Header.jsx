@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-import styled from "styled-components";
 import logo from "../../images/Hmovies.png";
 import { FaSearch } from "react-icons/fa";
+import {GiHamburgerMenu} from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
+import "./Header.scss";
 
 const Header = () => {
   const [input, setInput] = useState("");
   const navigate = useNavigate();
+  const [ showIcon, setShowIcon ] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,24 +17,27 @@ const Header = () => {
   };
   return (
     <>
-      <Nav>
+      <nav>
         <Link to="/">
           <img src={logo} alt="logo" />
         </Link>
-        <NavMenu>
-          <SLink to="/">
+        <div className="menu-icon">
+          <GiHamburgerMenu onClick={() => setShowIcon(!showIcon)}/>
+        </div>
+        <div className={showIcon ? "nav-menu active" : "nav-menu"}>
+          <NavLink className="nav-link" to="/">
             <h4>Home</h4>
-          </SLink>
-          <SLink to="/movies/all">
+          </NavLink>
+          <NavLink className="nav-link" to="/movies/all">
             <h4>Movies</h4>
-          </SLink>
-          <SLink to="/upcoming">
+          </NavLink>
+          <NavLink className="nav-link" to="/upcoming">
             <h4>Upcoming</h4>
-          </SLink>
-          <SLink to="/toprated">
+          </NavLink>
+          <NavLink className="nav-link" to="/toprated">
             <h4>Top rated</h4>
-          </SLink>
-        </NavMenu>
+          </NavLink>
+        </div>
         <form onSubmit={handleSubmit}>
           <div>
             <FaSearch></FaSearch>
@@ -43,85 +48,11 @@ const Header = () => {
             />
           </div>
         </form>
-      </Nav>
+      </nav>
+
     </>
   );
 };
 
-const Nav = styled.nav`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  background: transparent;
-  z-index: 100;
-  img {
-    position: absolute;
-    width: 8rem;
-    margin-left: 5%;
-  }
-
-  form {
-    position: absolute;
-    right: 0;
-    margin-top: 1rem;
-    margin-right: 5rem;
-    div {
-      width: 100%;
-      position: relative;
-    }
-
-    input {
-      width: 100%;
-      color: #12c6b2;
-      outline: none;
-      border: none;
-      border-radius: 0.2rem;
-      font-size: 1rem;
-      font-weight: 500;
-      padding: 0.2rem 0.8rem;
-    }
-
-    svg {
-      position: absolute;
-      color: #12c6b2;
-      top: 50%;
-      right: 0;
-      transform: translate(-20%, -50%);
-    }
-  }
-`;
-const NavMenu = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-`;
-const SLink = styled(NavLink)`
-  padding: 1rem;
-  font-size: 1.2rem;
-  color: white;
-  text-decoration: none;
-  padding: 1.3rem 1.5rem;
-
-  background-image: linear-gradient(#12c6b2, #12c6b2);
-  background-size: 0% 2px;
-  background-repeat: no-repeat;
-  background-position: bottom;
-  transition: background-size 0.5s;
-  h4 {
-    font-weight: 600;
-    transition: 0.5s;
-  }
-
-  &.active {
-    color: #12c6b2;
-    background-size: 100% 2px;
-  }
-  &:hover {
-    color: #12c6b2;
-    background-size: 100% 2px;
-  }
-`;
 
 export default Header;

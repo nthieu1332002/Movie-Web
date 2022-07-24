@@ -1,0 +1,28 @@
+@use "../../scss/" as *;
+
+.video {
+    margin: 2rem 5rem;
+    @include tablet {
+      margin: 1rem 2rem;
+    }
+    @include mobile {
+      margin: 1rem 1rem;
+    }
+  .trailer-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #12c6b2;
+  }
+  iframe {
+    width: 100%;
+    height: 700px;
+    @include tablet {
+      width: 100%;
+      height: 500px;
+    }
+    @include mobile {
+      width: 100%;
+      height: 300px;
+    }
+  }
+}

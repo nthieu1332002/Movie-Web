@@ -7,14 +7,13 @@ const Movies = () => {
   let params = useParams();
   const [movies, setMovies] = useState([]);
   const [showMore, setShowMore] = useState(1);
-  console.log(params.keyword)
   useEffect(() => {
     const getMovies = async (showMore) => {
       let url = "";
       if (params.keyword === "all") {
         url = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${showMore}`;
       } else {
-        url =`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${showMore}&query=${params.keyword}`;
+        url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${showMore}&query=${params.keyword}`;
       }
 
       const api = await fetch(url);
@@ -56,6 +55,9 @@ const Movies = () => {
 };
 const Container = styled.div`
   margin: 5%;
+  @media only screen and (max-width: 600px) {
+    margin: 20%;
+  }
 `;
 
 const Grid = styled.div`

@@ -15,7 +15,7 @@ const CasterList = (props) => {
   }, [props.id]);
   
   return (
-    <>
+
     <CasterWrapper>
       {caster.map((item) => {
         return (
@@ -26,7 +26,7 @@ const CasterList = (props) => {
         )
       })}
     </CasterWrapper>
-    </>
+
   );
 };
 

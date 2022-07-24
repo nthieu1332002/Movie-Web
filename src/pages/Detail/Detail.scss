@@ -9,6 +9,9 @@
     background-repeat: no-repeat;
     background-size: cover;
     filter: brightness(30%);
+    @include mobile {
+      height: 80vh;
+    }
   }
   .content {
     position: absolute;
@@ -18,19 +21,39 @@
     left: 0;
     right: 0;
     margin: 5rem;
+    @include tablet {
+      margin: 5rem 2rem;
+    }
+    @include mobile {
+      margin: 0;
+      flex-direction: column;
+    }
     .movie-detail-img {
-      width: 430px;
+      width: 35%;
       height: 600px;
-      margin-right: 5rem;
+      @include tablet {
+        display: none;
+      }
       img {
-        width: 100%;
-        height: auto;
+        width: auto;
+        height: 100%;
         border-radius: 0.8rem;
       }
     }
     .movie-detail {
-      width: 800px;
+      width: 65%;
       height: 600px;
+      display: flex;
+      flex-direction: column;
+      margin-left: 5rem;
+      @include tablet {
+        width: 100%;
+        margin: 2rem 1rem;
+      }
+      @include mobile {
+        width: 100%;
+        margin: 5rem 0.5rem;
+      }
       .movie-detail-title-wrapper {
         display: flex;
         justify-content: space-between;
@@ -72,8 +95,7 @@
         }
       }
       .movie-detail-caster {
-        position: absolute;
-        bottom: 0;
+        margin-top: auto;
         h3 {
           color: #12c6b2;
         }
